@@ -403,115 +403,35 @@ Odcięto zbędne elementy plastikowe utrzymujące ruchome element.
 %Obecne w dokumencie do etapu II oraz III
 \section{Opis działania programu}
 
-Docelowy program ma zaimplementowany alogrytm poruszania karetki. W związku z wczesną fazą powstawania programu parametry pozycji, do której ma przyjechać karetka, ustawiane są bezpośrednio w kodzie. Przy starcie programu silnik krokowy wykonuje tyle skoków by karetka znalazła się w skrajnej pozycji, co jest rejestrowane wówczas przez krańcówke. Stanowi to punkt odniesienia, od którego odliczane są ilości skoków jakie ma wykonać silnik by ustawić karetke na konkretną pozycje. 
+Program służy do testownia implementacji alogrytmu poruszania karetką. W związku z wczesną fazą powstawania programu parametry pozycji, do której ma przyjechać karetka, ustawiane są bezpośrednio w kodzie. Przy starcie programu silnik krokowy wykonuje tyle skoków by karetka znalazła się w skrajnej pozycji, co jest rejestrowane wówczas przez krańcówke. Stanowi to punkt odniesienia, od którego odliczane są ilości skoków jakie ma wykonać silnik by ustawić karetke na konkretną pozycje. 
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.5\textwidth]{figures/obraz.png}
-	\caption{Diagram przepływu}
-	\label{fig:Program}
+	\includegraphics[width=0.5\textwidth]{figures/diagram.png}
+	\caption{Diagram testowej aplikacji ruchu}
+	\label{fig:Diagram}
 \end{figure}
 
-Sekcję tą można podzielić na dodatkowe podsekcje w miarę potrzeb. 
-Do tego celu nalezy wykorzystać \textit{subsection}.
-
-W przypadku, dodania istotnego fragmentu kodu należy posłużyć się środowiskiem 
-lstlisting:
-
-\begin{lstlisting}[tabsize=2]
-int foo(void){
-return 2;
-}
-\end{lstlisting}
-
-Przykładowy wzór (\ref{eq:Wzor}):
-\begin{equation}
-\label{eq:Wzor}
-\Theta = \int_t^{t+dt} \omega \, dt.	
-\end{equation}
-
-Przykładowa pozycja bibliograficzna \cite{SR01} znajduje się 
-w pliku bibliografia.bib.
-
-%Obecne w dokumencie do etapu I
-
-\section{Harmonogram pracy}
-
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=1.4\textwidth,angle=270]{gant.PNG}
-	\caption{Diagram Gantta}
-	\label{fig:DiagramGantta}
-\end{figure}
-
-%Obecne w dokumencie do etapu I
-\subsection{Kamienie milowe}
-
-\begin{itemize}
-
-\item [1.] Ukończenie prac nad częścią sprzętową
-\item [2.] Poruszanie karteką po osi ruchu
-\item [3.] Program realizujący funkcje urządzenia wraz z interfejsem użytkownika
-\item [4.]Dodanie funkcjonalności odtwarzania dźwięku zapisanego na zewnętrznej pamięci FLASH
-
-\end{itemize}
-\subsection{Podział pracy}
-
-\textbf{}
-
-
-\begin{table}[H]
-	\centering
-	\begin{tabular}{|L{7cm}|L{0.8cm}||L{7cm}|L{0.8cm}|}
-		\hline
-		\hline
-		\textbf{Kewin Gałuszka} & 
-		\% & 
-		\textbf{Adrian Urban} & \%\\
-		\hline
-		\hline
-		Wstępna konfiguracja peryferiów w programie CubeMx		& &	
-		Wstępna konfiguracja peryferiów w programie CubeMx &\\
-		
-		\hline
-		Zaprojektowanie i wykonanie części elektronicznej urządzenia& &
-		Zaprojektowanie i wykonanie części mechanicznej urządzenia  & \\
-		\hline
-    	Implementacja algorytmu ruchu karetki oraz jej pozycjonowania & &
-		Integracja części mechanicznej z elektroniczną &\\
-		\hline
-	\end{tabular}
-	\caption{Podział pracy -- Etap II}
-	\label{tab:PodzialPracyEtap2}
-\end{table}
-
-\begin{table}[H]
-	\centering
-	\begin{tabular}{|L{7cm}|L{0.8cm}||L{7cm}|L{0.8cm}|}
-		\hline
-		\hline
-		\textbf{Kewin Gałuszka} & 
-		\% & 
-		\textbf{Adrian Urban} & \%\\
-		\hline
-		\hline
-		Finalna konfiguracja peryferiów w programie CubeMX		& &	
-		Finalna konfiguracja peryferiów w programie CubeMX &\\
-		\hline
-		Implementacja algorytmu działania automatu & &
-		Obsługa pomp oraz podświetlenia &\\
-		\hline
-		Implementacja obsługi DAC i odtwarzania wcześniej zapisanego dźwięku & &
-		Implementacja obsługi wyświedlacza LCD i stworzenie interfejsu użytkownika & \\
-		\hline
-		Wprowadzenie poprawek do części sprzętowej i oprogramowania & &
-		Opracowanie sposobu przechowywania dźwięku na zewnętrznej pamięci flash &\\
-		\hline
-	\end{tabular}
-	\caption{Podział pracy -- Etap III}
-	\label{tab:PodzialPracyEtap3}
-\end{table}
+%Sekcję tą można podzielić na dodatkowe podsekcje w miarę potrzeb. 
+%Do tego celu nalezy wykorzystać \textit{subsection}.
+%
+%W przypadku, dodania istotnego fragmentu kodu należy posłużyć się środowiskiem 
+%lstlisting:
+%
+%\begin{lstlisting}[tabsize=2]
+%int foo(void){
+%return 2;
+%}
+%\end{lstlisting}
+%
+%Przykładowy wzór (\ref{eq:Wzor}):
+%\begin{equation}
+%\label{eq:Wzor}
+%\Theta = \int_t^{t+dt} \omega \, dt.	
+%\end{equation}
+%
+%Przykładowa pozycja bibliograficzna \cite{SR01} znajduje się 
+%w pliku bibliografia.bib.
 
 % %Obecne w dokumencie do etapu II oraz III (jeśli coś zostało niezrealizowane)
 % \section{Zadania niezrealizowane}
