@@ -402,6 +402,15 @@ Część elektroniczną wykonano na płytce uniwersalnej. Płytkę deweloperską
 \subsection{Zasilanie}
 Płytkę wyposażono w zasilacz układu DRV8825 -- sterownika silnika krokowego, ponadto umieszczono diody sygnalizujące obecność napięcia na linii 17V (zasilanie sterownika silnika krokowego) oraz 5V (zasilanie mikrokontrolera). Napięcie 5V uzyskiwanie jest z użyciem przetwornicy DC-DC step down.
 
+\subsection{Silnik krokowy}
+Silnik krokowy NEMA 17 połączony jest za pomocą taśmy zakończonej złączami goldpin do sterownika. Celem lepszej filtracji napięcia umieszczono kondensatory możliwie blisko układu DRV8825.
+
+\subsection{Sekcja przekaźników}
+Moduł przekaźników podłączony jest do mikrokontrolera taśmą goldpin. Zasilany jest napięciem 5V z przetwornicy. Zastosowana izolacja galwaniczna zabezpiecza mikrokontroler przed nieporządanymi pikami napięcia podczas rozłączania cewek, dodatkowo powoduje zmniejszenie prądu pobieranego z pinów mikrokontrolera. 
+
+\subsection{Sterowanie podświetleniem}
+Jako elementy wykonawcze użyto tranzystory MOSFET z kanałem N.
+
 %Obecne w dokumencie do etapu II oraz III
 \section{Konstrukcja mechaniczna}
 
