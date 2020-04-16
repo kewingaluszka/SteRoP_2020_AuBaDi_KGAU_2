@@ -341,6 +341,30 @@ ADC zostanie wykorzystany do odczytywania stanu z czujników optycznych
 	\label{tab:USART}
 \end{table}
 
+\subsection{TIM4}
+Timer 4 wykorzystywany jest do sterowania silnikiem krokowym poprzez sterownik. Częstotliwość ustawiono na 1\emph{kHz}. Obsługa przerwań tego timera zmienia stan logiczny wejścia sterownika silnika krokowego o naziwe STEP. Sterownik ten reaguje na zbocze narastające jak i opadające. Co każdą zmiane stanu dekrementujemy wartość step o jaką ma poruszyć się silnik. Konfiguracje peryferium przedstawiono w tabeli 8.
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|l|c|} \hline
+		\textbf{Parametr} & Wartość \\
+		\hline
+		\hline  \textbf{Prescaler(PSC - 16 bits value) }& \textcolor{blue}{99} \\ 
+		\hline  \textbf{Counter Period (AutoReload Register --- 16 bits value )} & Up \\
+		\hline  \textbf{Counter Period} & \textcolor{blue}{159} \\
+		\hline  \textbf{Internal Clock Division (CKD) } & No Division\\
+		\hline  \textbf{auto-reload preload} & Disable\\
+		\hline  \textbf{Master/Slave Mode (MSM bit) } & Disable (Trigger input effect not delayed)
+		\\
+	\hline  \textbf{Trigger Event Selection} & Reset (UG bit from TIMx\_EGR)  \\
+	\hline
+
+	\end{tabular}
+	\caption{Konfiguracja TIM4}
+	\label{tab:TIM4}
+\end{table}
+
+
 %Obecne w dokumencie do etapu II oraz III
 \section{Urządzenia zewnętrzne}
 
