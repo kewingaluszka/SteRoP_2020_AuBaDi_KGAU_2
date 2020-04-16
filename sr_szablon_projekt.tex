@@ -397,16 +397,11 @@ Wpisanie tych wartości do rejestrów urządzenia ... powoduje ...
 \section{Projekt elektroniki}
 
 
+Część elektroniczną wykonano na płytce uniwersalnej. Płytkę deweloperską STM32F411VET6 umieszczono na listwach goldpin celem uproszczenia procesu montażu i stworzenia możliwości użycia jej ponownie do innych projektów. 
 
-W przypadku, w którym projekt uwzględnia zastosowanie 
-dodatkowej elektroniki to wówczas jej opis powinien znaleźć się tutaj.
-Należy dołączyć schematy elektroniczne w formacie PDF 
-jako dodatek do dokumentu 
-za pomocą \textit{include}. Również w przypadku wytworzenia 
-płytek PCB powinny znaleźć się tutaj ich widoki za zachowaniem skali.
-Można również dołączyć zdjęcia 
-elektroniki po uprzednim skompresowaniu, aby wynikowy rozmiar 
-skompilowanego dokumentu nie był za duży.
+\subsection{Zasilanie}
+Płytkę wyposażono w zasilacz układu DRV8825 -- sterownika silnika krokowego, ponadto umieszczono diody sygnalizujące obecność napięcia na linii 17V (zasilanie sterownika silnika krokowego) oraz 5V (zasilanie mikrokontrolera). Napięcie 5V uzyskiwanie jest z użyciem przetwornicy DC-DC step down.
+
 %Obecne w dokumencie do etapu II oraz III
 \section{Konstrukcja mechaniczna}
 
