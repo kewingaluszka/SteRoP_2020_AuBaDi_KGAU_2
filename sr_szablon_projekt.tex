@@ -402,7 +402,9 @@ Wyłącznik krańcowy podłączony jest do pinu PD11, który jest skonfigurowany
 Część elektroniczną wykonano na płytce uniwersalnej. Płytkę deweloperską STM32F411VET6 umieszczono na listwach goldpin celem uproszczenia procesu montażu i stworzenia możliwości użycia jej ponownie do innych projektów. 
 
 \subsection{Zasilanie}
-Płytkę wyposażono w zasilacz układu DRV8825 -- sterownika silnika krokowego, ponadto umieszczono diody sygnalizujące obecność napięcia na linii 17V (zasilanie sterownika silnika krokowego) oraz 5V (zasilanie mikrokontrolera). Napięcie 5V uzyskiwanie jest z portu USB. W razie przekroczenia wydajności prądowej portu USB, układ zostanie doposażony w przetwornicę DC-DC, która została umieszczona na schemacie.
+Płytkę wyposażono w zasilacz układu DRV8825 -- sterownika silnika krokowego, ponadto umieszczono diody sygnalizujące obecność napięcia na linii 17V (zasilanie sterownika silnika krokowego) oraz 5V (zasilanie mikrokontrolera). Wykorzystano transformator z napięciem na uzwojeniu wtórym równym 12V.
+
+Napięcie 5V uzyskiwanie jest z portu USB. W razie przekroczenia wydajności prądowej portu USB, układ zostanie doposażony w przetwornicę DC-DC, która została umieszczona na schemacie.
 
 \subsection{Silnik krokowy}
 Silnik krokowy NEMA 17 połączony jest za pomocą taśmy zakończonej złączami goldpin do sterownika. Celem lepszej filtracji napięcia umieszczono kondensatory możliwie blisko układu DRV8825.
@@ -410,6 +412,8 @@ Silnik krokowy NEMA 17 połączony jest za pomocą taśmy zakończonej złączam
 \subsection{Sekcja przekaźników}
 Moduł przekaźników podłączony jest do mikrokontrolera taśmą goldpin. Zasilany jest napięciem 5V z przetwornicy. Zastosowana izolacja galwaniczna zabezpiecza mikrokontroler przed nieporządanymi pikami napięcia podczas rozłączania cewek, dodatkowo powoduje zmniejszenie prądu pobieranego z pinów mikrokontrolera.
 
+\subsection{Wyświetlacz LCD oraz konwerter I2C}
+Wykorzystany moduł wyświetlacza LCD HD44780 wyposażony jest w konwerter I2C -- PCF8574. Moduł podłączony jest z mikroprocesorem za pomocą czterech przewodów zakończonych goldpinami. Dwa z nich odpowiadają za obługę magistrali I2C (SDA oraz SCL) kolejne dwa to masa oraz zasilanie 5V
 
 \subsection{Sterowanie podświetleniem}
 Jako elementy wykonawcze użyto tranzystory MOSFET z kanałem N.
@@ -486,7 +490,7 @@ Ostateczna konfiguracja mikrokonrolera zostanie przedstawiona w podsumowaniu eta
 \newline
 Linki do repozytoriów na platformie Github
 \newline
-\href{https://github.com/kewingaluszka/SteRoP_2020_AuBaDi_KGAU_2}{[SteRoP\_2020\_AuBaDi\_KGAU\_2 - Github]}
+\href{https://github.com/kewingaluszka/SteRoP_2020_AuBaDi_KGAU_2}{[Raport SteRoP\_2020\_AuBaDi\_KGAU\_2 - Github]}
 \newline
 \href{https://github.com/kewingaluszka/STM32_AuBaDi}{[Projekt STM32CubeIDE -- Github]}
 
