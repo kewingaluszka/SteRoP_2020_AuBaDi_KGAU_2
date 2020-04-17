@@ -43,6 +43,7 @@
 \usepackage{hyperref}
 \usepackage[utf8]{inputenc}
 \usepackage{lscape}
+\usepackage{pdfpages}
 \usepackage{url}
 
 \include{preambula}
@@ -125,36 +126,42 @@ Konfiguracja portów mikrokontrolera (rysunek 2) oraz zegarów (rysunek 3) przy 
 		\hline
 		Numer pinu	&	PIN & Tryb pracy & Funkcja/etykieta\\
 		\hline
-12&	PH0 - OSC{\_}IN&	RCC{\_}OSC{\_}IN&	PH0-OSC{\_}IN \\
-13&	PH1 - OSC{\_}OUT&	RCC{\_}OSC{\_}OUT&	PH1-OSC{\_}OUT\\
-17&	PC2&	GPIO{\_}Output&	Direction [A4988]\\
-18&	PC3&	GPIO{\_}Output&	Step [A4988]\\
-23&	PA0-WKUP&	ADC1{\_}IN0&	Laser{\_}receiver\\
-24&	PA1&	ADC1{\_}IN1&	Endstop{\_}receiver\\
-29&	PA4&	I2S3{\_}WS&	I2S3{\_}WS [CS43L22{\_}LRCK]\\
-30&	PA5&	GPIO{\_}Input&	Button{\_}1\\
-31&	PA6&	GPIO{\_}Input&	Button{\_}2\\
-32&	PA7&	GPIO{\_}Input&	Button{\_}3\\
-47&	PB10&	I2C2{\_}SCL&	I2C2{\_}SCL{\_}LCD\\
-55&	PD8&	GPIO{\_}Output&	LED{\_}blue\\
-56&	PD9&	GPIO{\_}Output&	LED{\_}green\\
-57&	PD10&	GPIO{\_}Output&	LED{\_}red\\
-58&	PD11&	GPIO{\_}Output&	Pump{\_}relay{\_}5\\
-59&	PD12&	GPIO{\_}Output&	Pump{\_}relay{\_}4\\
-60&	PD13&	GPIO{\_}Output&	Pump{\_}relay{\_}3\\
-61&	PD14&	GPIO{\_}Output&	Pump{\_}relay{\_}2\\
-62&	PD15&	GPIO{\_}Output&	Pump{\_}relay{\_}1\\
-64&	PC7&	I2S3{\_}MCK&	I2S3{\_}MCK [CS43L22{\_}MCLK]\\
-68&	PA9&	USB{\_}OTG{\_}FS{\_}VBUS&	\\
-70&	PA11&	USB{\_}OTG{\_}FS{\_}DM&	OTG{\_}FS{\_}DM\\
-71&	PA12&	USB{\_}OTG{\_}FS{\_}DP&	OTG{\_}FS{\_}DP\\
-78&	PC10&	I2S3{\_}CK&	I2S3{\_}SCK [CS43L22{\_}SCLK]\\
-80&	PC12&	I2S3{\_}SD&	I2S3{\_}SD [CS43L22{\_}SDIN]\\
-85&	PD4&	GPIO{\_}Output&	Audio{\_}RST [CS43L22{\_}RESET]\\
-86&	PD5&	GPIO{\_}Input&	OTG{\_}FS{\_}OverCurrent\\
-89&	PB3&	I2C2{\_}SDA&	I2C2{\_}SDA{\_}LCD\\
-92&	PB6&	I2C1{\_}SCL&	Audio{\_}SCL [CS43L22{\_}SCL] \\
-96&	PB9&	I2C1{\_}SDA&	Audio{\_}SDA [CS43L22{\_}SDA]\\
+8& PC14-OSC32{\_}IN& RCC{\_}OSC32{\_}IN& PC14-OSC32{\_}IN \\
+9& PC15-OSC32{\_}OUT& RCC{\_}OSC32{\_}OUT& PC15-OSC32{\_}OUT\\
+12& PH0 - OSC{\_}IN &RCC{\_}OSC{\_}IN& PH0-OSC{\_}IN\\
+13& PH1 - OSC{\_}OUT &RCC{\_}OSC{\_}OUT& PH1-OSC{\_}OUT\\
+23& PA0-WKUP &ADC1{\_}IN0& Laser{\_}receiver\\
+29& PA4& I2S3{\_}WS& I2S3{\_}WS [CS43L22{\_}LRCK]\\
+30& PA5& GPIO{\_}Input& Button{\_}1\\
+31& PA6& GPIO{\_}Input& Button{\_}2\\
+32& PA7& GPIO{\_}Input& Button{\_}3\\
+38& PE7& GPIO{\_}Output& LED{\_}R\\
+39& PE8& GPIO{\_}Output& LED{\_}G\\
+40& PE9& GPIO{\_}Output& LED{\_}B\\
+42& PE11& GPIO{\_}Output& Pump{\_}relay{\_}1\\
+43& PE12& GPIO{\_}Output& Pump{\_}relay{\_}2\\
+44& PE13& GPIO{\_}Output& Pump{\_}relay{\_}3\\
+45& PE14& GPIO{\_}Output& Pump{\_}relay{\_}4\\
+46& PE15& GPIO{\_}Output& Pump{\_}relay{\_}5\\
+47& PB10& I2C2{\_}SCL& I2C2{\_}SCL{\_}LCD\\
+58& PD11& GPIO{\_}EXTI11& endstop\\
+59& PD12& GPIO{\_}Output& LD4 [Green Led]\\
+60& PD13& GPIO{\_}Output& LD3 [Orange Led]\\
+61& PD14& GPIO{\_}Output& LD5 [Red Led]\\
+62& PD15& GPIO{\_}Output& LD6 [Blue Led]\\
+63& PC6& GPIO{\_}Output& dir [DRB8825]\\
+65& PC8& GPIO{\_}Output& step [DRV8825]\\
+67& PA8& GPIO{\_}Output& slp{\_}rst [DRV8825]\\
+68& PA9& USB{\_}OTG{\_}FS{\_}VBUS& VBUS{\_}FS\\
+70& PA11& USB{\_}OTG{\_}FS{\_}DM& OTG{\_}FS{\_}DM\\
+71& PA12& USB{\_}OTG{\_}FS{\_}DP& OTG{\_}FS{\_}DP\\
+78& PC10& I2S3{\_}CK I2S3{\_}SCK& [CS43L22{\_}SCLK]\\
+80& PC12& I2S3{\_}SD I2S3{\_}SD [CS43L22{\_}SDIN]\\
+85& PD4& GPIO{\_}Output& Audio{\_}RST [CS43L22{\_}RESET]\\
+86& PD5& GPIO{\_}Input& OTG{\_}FS{\_}OverCurrent\\
+89& PB3& I2C2{\_}SDA& I2C2{\_}SDA{\_}LCD\\
+92& PB6& I2C1{\_}SCL& Audio{\_}SCL [CS43L22{\_}SCL]\\
+96& PB9& I2C1{\_}SDA& Audio{\_}SDA [CS43L22{\_}SDA]\\
 
 		\hline
 	\end{tabular}
@@ -162,15 +169,16 @@ Konfiguracja portów mikrokontrolera (rysunek 2) oraz zegarów (rysunek 3) przy 
 	
 \end{table}
 \begin{itemize}
-\item Piny PD11,PD12,PD13,PD14,PD15 - załączanie przekaźników pomp
+\item Piny PE11,PE12,PE13,PE14,PE15 - załączanie przekaźników pomp
 \item Piny PB6 i PB9 - komunikacja I2C z DAC Audio
 \item Piny PA4, PC7, PC10, PC12 - komunikacja I2S z DAC Audio
 \item Pin PD4 - Reset DAC Audio
-\item Piny PD8, PD9, PD10 - oświetlenie LED
+\item Piny PE7, PE8, PE9 - oświetlenie LED
 \item Piny PA5, PA6, PA7 - przyciski
-\item Piny PC2, PC3 - sterownik silnika krokowego A4988
+\item Piny PC6, PC8, PA8 - sterownik silnika krokowego A4988
 \item Piny PH0, PH1 - rezonator kwarcowy
-\item Piny PA0, PA1 - czujniki fotorezystorowe (wyłącznik krańcowy oraz czujnik zbiornika)
+\item Pin PA0 - czujnik fotorezystorowy (czujnik zbiornika)
+\item Pin PD11 - wyłącznik krańcowy
 \item Piny PB10, PB3 - komunikacja I2C z wyświetlaczem LCD
 \item Piny PA9, PA11, PA12, PD5 - USB OTG (host)
 \end{itemize}
@@ -368,29 +376,23 @@ Timer 4 wykorzystywany jest do sterowania silnikiem krokowym poprzez sterownik. 
 %Obecne w dokumencie do etapu II oraz III
 \section{Urządzenia zewnętrzne}
 
-Rozdział ten powinien zawierać opis i konfigurację wykorzystanych ukladów
-zewnętrznych, jak np. akcelerometr.
 
 %Obecne w dokumencie do etapu II oraz III
-\subsection{Akcelerometr -- LSM303C}
+\subsection{Obsługa silnika krokowego}
+\subsubsection{Sterownik silnika krokowego DRV8825}
+Sterownik silnika został wykorzystany do sterowania silnikiem krokowym. Moduł posiada wejścia
+\begin{itemize}
+    \item \emph{dir} -- zmiana stanu na tym wejściu powoduje zmianę kierunku obracania się silnika
+    \item \emph{step} -- pojawienie się zbocza narastającego na tym wejściu skutkuje obrotem silnika o jeden krok
+    \item \emph{sleep} oraz \emph{reset} -- wejścia odpowiadające za pracę układu i wybudzanie go ze stanu uśpienia. Aby układ pracował, na obu wejściach powinien pojawić się stan wysoki.
+\end{itemize}
+\subsubsection{Silnik krokowy}
+Silnik krokowy sterowany jest za pomocą układu DRV8825 prądem ~0.7A na cewkę przy napięciu 17V. Jeden pełny obrót silnika to 200 kroków. 
 
-Akcelerometr został wykorzystany do ...
+\subsubsection{Wyłącznik krańcowy}
+Wyłącznik krańcowy podłączony jest do pinu PD11, który jest skonfigurowany jako GPIO EXTI11. Reakcja występuje na zbocze narastające, pin jest ustawiony jako \emph{"Pull down"}. 
 
-Konfiguracja rejestrów czujnika została zaprezentowana w ...
-Wpisanie tych wartości do rejestrów urządzenia ... powoduje ...
 
-\begin{table}[H]
-	\centering
-	\begin{tabular}{|l|c|} \hline
-		\textbf{Rejestr} & Wartość \\
-		\hline
-		\hline
-		CTRL\_REG2 (0x21) & 0x12\\\hline
-		CTRL\_REG3 (0x22) & 0x13\\\hline
-	\end{tabular}
-	\caption{Konfiguracja peryferium USART}
-	\label{tab:Akcelerometr}
-\end{table}
 
 %Obecne w dokumencie do etapu II oraz III
 %Obecne w dokumencie do etapu II oraz III
@@ -400,16 +402,19 @@ Wpisanie tych wartości do rejestrów urządzenia ... powoduje ...
 Część elektroniczną wykonano na płytce uniwersalnej. Płytkę deweloperską STM32F411VET6 umieszczono na listwach goldpin celem uproszczenia procesu montażu i stworzenia możliwości użycia jej ponownie do innych projektów. 
 
 \subsection{Zasilanie}
-Płytkę wyposażono w zasilacz układu DRV8825 -- sterownika silnika krokowego, ponadto umieszczono diody sygnalizujące obecność napięcia na linii 17V (zasilanie sterownika silnika krokowego) oraz 5V (zasilanie mikrokontrolera). Napięcie 5V uzyskiwanie jest z użyciem przetwornicy DC-DC step down.
+Płytkę wyposażono w zasilacz układu DRV8825 -- sterownika silnika krokowego, ponadto umieszczono diody sygnalizujące obecność napięcia na linii 17V (zasilanie sterownika silnika krokowego) oraz 5V (zasilanie mikrokontrolera). Napięcie 5V uzyskiwanie jest z portu USB. W razie przekroczenia wydajności prądowej portu USB, układ zostanie doposażony w przetwornicę DC-DC, która została umieszczona na schemacie.
 
 \subsection{Silnik krokowy}
 Silnik krokowy NEMA 17 połączony jest za pomocą taśmy zakończonej złączami goldpin do sterownika. Celem lepszej filtracji napięcia umieszczono kondensatory możliwie blisko układu DRV8825.
 
 \subsection{Sekcja przekaźników}
-Moduł przekaźników podłączony jest do mikrokontrolera taśmą goldpin. Zasilany jest napięciem 5V z przetwornicy. Zastosowana izolacja galwaniczna zabezpiecza mikrokontroler przed nieporządanymi pikami napięcia podczas rozłączania cewek, dodatkowo powoduje zmniejszenie prądu pobieranego z pinów mikrokontrolera. 
+Moduł przekaźników podłączony jest do mikrokontrolera taśmą goldpin. Zasilany jest napięciem 5V z przetwornicy. Zastosowana izolacja galwaniczna zabezpiecza mikrokontroler przed nieporządanymi pikami napięcia podczas rozłączania cewek, dodatkowo powoduje zmniejszenie prądu pobieranego z pinów mikrokontrolera.
+
 
 \subsection{Sterowanie podświetleniem}
 Jako elementy wykonawcze użyto tranzystory MOSFET z kanałem N.
+
+\includepdf[pages=-,pagecommand={},width=\textwidth,angle=90]{dionizos_eagleA32.pdf}
 
 %Obecne w dokumencie do etapu II oraz III
 \section{Konstrukcja mechaniczna}
@@ -431,7 +436,7 @@ Odcięto zbędne elementy plastikowe utrzymujące ruchome element.
 %Obecne w dokumencie do etapu II oraz III
 \section{Opis działania programu}
 
-Program służy do testownia implementacji alogrytmu poruszania karetką. W związku z wczesną fazą powstawania programu parametry pozycji, do której ma przyjechać karetka, ustawiane są bezpośrednio w kodzie. Przy starcie programu silnik krokowy wykonuje tyle skoków by karetka znalazła się w skrajnej pozycji, co jest rejestrowane wówczas przez krańcówke. Stanowi to punkt odniesienia, od którego odliczane są ilości skoków jakie ma wykonać silnik by ustawić karetke na konkretną pozycje. 
+Program służy do testownia implementacji alogrytmu poruszania karetką. W związku z wczesną fazą powstawania programu parametry pozycji, do której ma przyjechać karetka, ustawiane są bezpośrednio w kodzie. Przy starcie programu silnik krokowy wykonuje tyle skoków by karetka znalazła się w skrajnej pozycji, co jest rejestrowane wówczas przez krańcówke. Stanowi to punkt odniesienia, od którego odliczane są ilości skoków jakie ma wykonać silnik by ustawić karetkę na konkretną pozycje. 
 
 \begin{figure}[H]
 	\centering
@@ -472,8 +477,11 @@ Program służy do testownia implementacji alogrytmu poruszania karetką. W zwi�
 %Obecne we wszystkich dokumentach
 \section{Podsumowanie}
 
-Wykonano wstępną konfiguację mikrokontrolera w programie CubeMX. Zmiany w niej będą następowały wraz z rozwojem projektu i pod kątem dostoswania ich do poszczególnych peryferiów.
-DAC Audio został skonfigurowany w opcji domyślnej, USB OTG w opcji host{\_}only, która pozwoli podłączyć do mikrokontrolera zewnętrzne peryferium - dysk flash celem zapisania plików dźwiękowych.
+Dokonano zmian w konfiguracji mikrokontrolera celem dopasowania rozmieszczenia pinów i uproszczenia połączeń na płytce uniwersalnej. Stworzono część mechaniczną i elektroniczną, która w razie potrzeb może zostać zmodyfikowana i dopasowana do rozwiązań, które nie zostały jeszcze użyte. Program obsługujący sterownik silnika krokowego z wykorzystaniem przerwań daje możliwość sterowania silnikiem i ustawienia rządanej pozycji, na której powinna znaleźć się karetka.
+
+W związku z problemami logistycznymi pompy oraz diody elektrolumiscencyjnye COB nie zostały zamówione. Nie wypływa to na proces realizacji projektu. Zostaną one zamontowane podczas realizacji etapu III. 
+
+Ostateczna konfiguracja mikrokonrolera zostanie przedstawiona w podsumowaniu etapu III. 
 
 
 \newpage
