@@ -156,7 +156,7 @@ Konfiguracja portów mikrokontrolera (rysunek 2) oraz zegarów (rysunek 3) przy 
 70& PA11& USB{\_}OTG{\_}FS{\_}DM& OTG{\_}FS{\_}DM\\
 71& PA12& USB{\_}OTG{\_}FS{\_}DP& OTG{\_}FS{\_}DP\\
 78& PC10& I2S3{\_}CK I2S3{\_}SCK& [CS43L22{\_}SCLK]\\
-80& PC12& I2S3{\_}SD I2S3{\_}SD [CS43L22{\_}SDIN]\\
+80& PC12& I2S3{\_}SD I2S3{\_}SD & [CS43L22{\_}SDIN]\\
 85& PD4& GPIO{\_}Output& Audio{\_}RST [CS43L22{\_}RESET]\\
 86& PD5& GPIO{\_}Input& OTG{\_}FS{\_}OverCurrent\\
 89& PB3& I2C2{\_}SDA& I2C2{\_}SDA{\_}LCD\\
@@ -350,7 +350,7 @@ ADC zostanie wykorzystany do odczytywania stanu z czujników optycznych
 \end{table}
 
 \subsection{TIM4}
-Timer 4 wykorzystywany jest do sterowania silnikiem krokowym poprzez sterownik. Częstotliwość ustawiono na 1\emph{kHz}. Obsługa przerwań tego timera zmienia stan logiczny wejścia sterownika silnika krokowego o naziwe STEP. Sterownik ten reaguje na zbocze narastające jak i opadające. Co każdą zmiane stanu dekrementujemy wartość step o jaką ma poruszyć się silnik. Konfiguracje peryferium przedstawiono w tabeli 8.
+Timer 4 wykorzystywany jest do sterowania silnikiem krokowym poprzez sterownik. Częstotliwość ustawiono na 1\emph{kHz}. Obsługa przerwań tego timera zmienia stan logiczny wejścia sterownika silnika krokowego o naziwe STEP. Sterownik ten reaguje na zbocze narastające. Co każdą zmianę stanu dekrementujemy wartość step o jaką ma poruszyć się silnik. Konfiguracje peryferium przedstawiono w tabeli 8.
 
 \begin{table}[H]
 	\centering
@@ -380,7 +380,7 @@ Timer 4 wykorzystywany jest do sterowania silnikiem krokowym poprzez sterownik. 
 %Obecne w dokumencie do etapu II oraz III
 \subsection{Obsługa silnika krokowego}
 \subsubsection{Sterownik silnika krokowego DRV8825}
-Sterownik silnika został wykorzystany do sterowania silnikiem krokowym. Moduł posiada wejścia
+Układ został wykorzystany do poruszania silnikiem krokowym. Moduł posiada wejścia
 \begin{itemize}
     \item \emph{dir} -- zmiana stanu na tym wejściu powoduje zmianę kierunku obracania się silnika
     \item \emph{step} -- pojawienie się zbocza narastającego na tym wejściu skutkuje obrotem silnika o jeden krok
@@ -390,7 +390,7 @@ Sterownik silnika został wykorzystany do sterowania silnikiem krokowym. Moduł 
 Silnik krokowy sterowany jest za pomocą układu DRV8825 prądem ~0.7A na cewkę przy napięciu 17V. Jeden pełny obrót silnika to 200 kroków. 
 
 \subsubsection{Wyłącznik krańcowy}
-Wyłącznik krańcowy podłączony jest do pinu PD11, który jest skonfigurowany jako GPIO EXTI11. Reakcja występuje na zbocze narastające, pin jest ustawiony jako \emph{"Pull down"}. 
+Wyłącznik krańcowy podłączony jest do pinu PD11, który jest skonfigurowany jako GPIO{\_}EXTI11. Reakcja występuje na zbocze narastające, pin jest ustawiony jako \emph{Pull down}. 
 
 
 
@@ -440,15 +440,15 @@ Odcięto zbędne elementy plastikowe utrzymujące ruchome element.
 %Obecne w dokumencie do etapu II oraz III
 \section{Opis działania programu}
 
-Program służy do testownia implementacji alogrytmu poruszania karetką. W związku z wczesną fazą powstawania programu parametry pozycji, do której ma przyjechać karetka, ustawiane są bezpośrednio w kodzie. Przy starcie programu silnik krokowy wykonuje tyle skoków by karetka znalazła się w skrajnej pozycji, co jest rejestrowane wówczas przez krańcówke. Stanowi to punkt odniesienia, od którego odliczane są ilości skoków jakie ma wykonać silnik by ustawić karetkę na konkretną pozycje. 
+Program służy do testownia implementacji alogrytmu poruszania karetką. W związku z wczesną fazą powstawania programu parametry pozycji, do której ma przyjechać karetka, ustawiane są bezpośrednio w kodzie. Przy starcie programu silnik krokowy wykonuje tyle skoków by karetka znalazła się w skrajnej pozycji, co jest rejestrowane wówczas przez wyłącznik krańcowy. Stanowi to punkt odniesienia (pozycję 0), od którego odliczane są ilości skoków jakie ma wykonać silnik by ustawić karetkę na konkretną pozycje. 
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.5\textwidth]{figures/diagram.png}
+	\includegraphics[width=0.35\textwidth]{figures/diagram.png}
 	\caption{Diagram testowej aplikacji ruchu}
 	\label{fig:Diagram}
 \end{figure}
-
+ \newpage
 %Sekcję tą można podzielić na dodatkowe podsekcje w miarę potrzeb. 
 %Do tego celu nalezy wykorzystać \textit{subsection}.
 %
